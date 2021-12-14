@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href ="/views/index.css" type="text/css">
+    <title>
+        <%= title %>
+    </title>
+    </head>
+    <body>
+        <div">
+            <div>
+                <img class="dog" src="/views/icons/dog.png">
+        </div>
+        <h1>Wisconsin Dog Search</h1>
+        <div>
+        <form action ='/' method = 'post'>
+            <div>
+            <select id="Distance" name="miles">
+                <option value=25>25mi</option>
+                <option value=50>50mi</option>
+                <option value=100>100mi</option>
+                <option value=200>200mi</option>
+            </select>
+            <input type = "text" name ="zipcode" placeholder="Zipcode" autocomplete="off"></label>
+            <input class="searchImg" type = "image" src="/views/icons/search.png" value="zipcode" alt="submit">
+            </div>
+            <% if(zip_error) { %>
+                <div class="flex-column"><span class="error-message">Invalid Zipcode!</span></div>
+                <% } %>
+            <% if(noResult) { %>
+                    <div class="flex-column"><span class="error-message">No Results Found!</span></div>
+                    <% } %>
+        </form>
+        </div>
+    </div>
+    </body>
+</html>

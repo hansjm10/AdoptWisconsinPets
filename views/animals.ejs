@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href ="/views/animals.css" type="text/css">
+    <title>
+    </title>
+    </head>
+    <body onload="myFunction()">
+        <h1>Wisconsin Pets</h1>
+        <div class="container">
+        <form action ='/page' method = 'post'>
+            <div>
+            <select id="Distance" name="miles">
+                <option value=25>25mi</option>
+                <option value=50>50mi</option>
+                <option value=100>100mi</option>
+                <option value=200>200mi</option>
+            </select>
+            <input type = "text" name ="zipcode" placeholder="Zipcode" autocomplete="off"></label>
+            <input class="searchImg" type = "image" src="/views/icons/search.png" value="zipcode" alt="submit">
+            </div>
+            <div class="flex-column"><span class="results">Found <%=dogs %> dogs nearby</span></div>
+        </form>
+        </div>
+        <div class=container>
+        <%for (var i=displayed; i<displayed+20; i++){ %>
+            <% if (photo[i].photos[0] !=null) { %>
+                <div class="flex-item loader"></div>
+                <div class="flex-item animalPlaceholder" style="display:none">
+                    <div class = "animalPictures">
+                    <a class href= "<%= url[i].url %>"> <img src= "<%= photo[i].photos[0].full %>"> </a>
+                    </div>
+                    <p><%= name[i].name %> </p>
+                    <p><%= name[i].contact.address.city %> <%=name[i].contact.address.state %>, <%= name[i].contact.address.postcode %></p>
+                </div>
+            <% } %>
+         <% } %>
+            </div>
+            <div class="container">
+         <% for (var i=1; i<pages; i++){ %>
+             <p class="page"><a href = "/page/<%=i %>?zipcode=<%=zip %>&miles=<%=mi %>"><%=i %>. </p>
+        <%} %>
+             </div>
+             <script>
+                 var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 600);
+}
+
+function showPage() {
+  var y = document.getElementsByClassName("loader")
+  var x = document.getElementsByClassName("animalPlaceholder")
+  for(var i = 0; i<x.length; i++)
+  {
+      y[i].style.display = "none"
+      x[i].style.display = "flex"
+  }
+}
+                 </script>
+    </body>
+</html>

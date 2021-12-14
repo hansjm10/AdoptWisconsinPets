@@ -1,0 +1,90 @@
+body{
+    background-color: #303030;
+    color: white;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+    margin-bottom: -1em;
+    margin-right: 1em;
+}
+.flex-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    height: auto;
+    margin: 55px;
+    margin-top: 10px;
+}
+.results {
+    align-items: center;
+    border-radius: .4em;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 12px;
+    background: #ffd65b;
+    color: #303030;
+    height: 24px;
+  }
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #ffd65b; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+  }
+.animalPictures{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+img{
+    width: 200px;
+}
+p{
+    text-align: center;
+}
+.page{
+    margin:3px;
+}
+.searchImg{
+    width: 50px;
+    height: auto;
+}
+input:focus ~ .searchImg{
+    animation: bounce .4s;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+    animation-iteration-count: infinite;
+}
+a:visited{
+    color: #ffd65b;
+}
+a:link{
+    color: #ffd65b;
+}
+a:active{
+    color: #ddb552;
+}
+@keyframes bounce {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 10px, 0);
+    }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
