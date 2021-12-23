@@ -82,8 +82,7 @@ app.get('/page/:id', function(req,res){
     else{
     req.session.noResults = false
     count = address.length
-    var displayedAnimals = count - (20*req.params.id)
-    console.log(displayedAnimals)
+    var displayedAnimals = Math.abs(count - (20*req.params.id))
     var numbers_of_pages = Math.ceil(count / 20)
     res.render('animals.ejs',{
         error: "nice",

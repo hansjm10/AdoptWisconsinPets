@@ -36,8 +36,8 @@
          <% } %>
             </div>
             <div class="container">
-         <% for (var i=1; i<pages; i++){ %>
-             <p class="page"><a href = "/page/<%=i %>?zipcode=<%=zip %>&miles=<%=mi %>"><%=i %>. </p>
+         <% for (var i=0; i<pages; i++){ %>
+             <p class="page"><a href = "/page/<%=i+1 %>?zipcode=<%=zip %>&miles=<%=mi %>"><%=i+1 %>. </p>
         <%} %>
              </div>
              <script>
